@@ -2,11 +2,15 @@ package com.example.simplecalculator.ui
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
-import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModel
 import com.example.simplecalculator.domain.CalculationService
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CalculatorViewModel : ViewModel() {
+@HiltViewModel
+class CalculatorViewModel @Inject constructor(
+    private val calculationService: CalculationService
+) : ViewModel() {
 
     // State of formula shown in UI
     private val _formula = mutableStateOf("")
@@ -75,7 +79,7 @@ class CalculatorViewModel : ViewModel() {
     // Calculate result of formula
     private fun calculateResult() {
         val calculatedResult = try {
-            CalculationService.calculate(formulaInput.toList())
+            calculationService.calculate(formulaInput.toList())
         } catch (e: Throwable) {
             e.message ?: "Wrong"
         }

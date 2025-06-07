@@ -1,8 +1,8 @@
 package com.example.simplecalculator.domain
 
-import androidx.core.text.isDigitsOnly
+import javax.inject.Inject
 
-object CalculationService {
+class CalculationService @Inject constructor() {
 
     fun calculate(formulaInput: List<String>): String {
 
