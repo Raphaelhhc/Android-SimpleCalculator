@@ -43,9 +43,9 @@ fun CalculatorScreen(
         )
         // Buttons
         Buttons(
-            onClickButton = { text ->
-                Log.d("UI", "onClick $text")
-                vm.handleClickEvent(text)
+            onClickButton = { char ->
+                Log.d("UI", "onClick $char")
+                vm.handleClickEvent(char)
             }
         )
     }
@@ -53,7 +53,7 @@ fun CalculatorScreen(
 
 @Composable
 fun Buttons(
-    onClickButton: (String) -> Unit
+    onClickButton: (Char) -> Unit
 ) {
     /**
      * | C | _ | < | + |
@@ -63,12 +63,12 @@ fun Buttons(
      * | _ | 0 | . | = |
      * _: add later
      * */
-    val buttonTexts: List<List<String>> = listOf(
-        listOf("C", "_", "<", "+"),
-        listOf("7", "8", "9", "-"),
-        listOf("4", "5", "6", "×"),
-        listOf("1", "2", "3", "÷"),
-        listOf("_", "0", ".", "=")
+    val buttonTexts: List<List<Char>> = listOf(
+        listOf('C', '_', '<', '+'),
+        listOf('7', '8', '9', '-'),
+        listOf('4', '5', '6', '×'),
+        listOf('1', '2', '3', '÷'),
+        listOf('_', '0', '.', '=')
     )
     Column(
         modifier = Modifier
@@ -84,14 +84,14 @@ fun Buttons(
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                rows.forEach { text ->
+                rows.forEach { char ->
                     Button(
                         onClick = {
-                            Log.d("UI", "Click $text")
-                            onClickButton(text)
+                            Log.d("UI", "Click $char")
+                            onClickButton(char)
                         }
                     ) {
-                        Text(text = text)
+                        Text(text = char.toString())
                     }
                 }
             }
