@@ -45,7 +45,7 @@ fun CalculatorScreen(
         Buttons(
             onClickButton = { char ->
                 Log.d("UI", "onClick $char")
-                vm.handleClickEvent(char)
+                vm.handleClickEvent(char.toString())
             }
         )
     }
