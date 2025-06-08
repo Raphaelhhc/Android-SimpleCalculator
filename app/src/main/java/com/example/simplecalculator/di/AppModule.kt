@@ -1,6 +1,7 @@
 package com.example.simplecalculator.di
 
 import com.example.simplecalculator.domain.CalculationService
+import com.example.simplecalculator.domain.CalculationServiceContract
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +14,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCalculationService(): CalculationService {
+    fun provideCalculationService(): CalculationServiceContract {
         return CalculationService()
     }
 

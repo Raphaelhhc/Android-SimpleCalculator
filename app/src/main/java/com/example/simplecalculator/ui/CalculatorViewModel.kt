@@ -3,14 +3,13 @@ package com.example.simplecalculator.ui
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.example.simplecalculator.domain.CalculationService
 import com.example.simplecalculator.domain.CalculationServiceContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class CalculatorViewModel @Inject constructor(
-    private val calculationService: CalculationService
+    private val calculationService: CalculationServiceContract
 ) : ViewModel() {
 
     // State of formula shown in UI
