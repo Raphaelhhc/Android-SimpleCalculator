@@ -90,4 +90,5 @@ dependencies {
     implementation(libs.websocket)
     // Gson
     implementation(libs.gson)
+    testImplementation(kotlin("test"))
 }

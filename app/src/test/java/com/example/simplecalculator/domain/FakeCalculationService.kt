@@ -1,8 +1,6 @@
 package com.example.simplecalculator.domain
 
-import javax.inject.Inject
-
-class CalculationService @Inject constructor(): CalculationServiceContract {
+class FakeCalculationService: CalculationServiceContract {
 
     override fun calculate(formulaInput: List<String>): String {
 
@@ -41,6 +39,7 @@ class CalculationService @Inject constructor(): CalculationServiceContract {
         }
 
         return if (stack.isNotEmpty()) stack.first() else ""
+
     }
 
 }

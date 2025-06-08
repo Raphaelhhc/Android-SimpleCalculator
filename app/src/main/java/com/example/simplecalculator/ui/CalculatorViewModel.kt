@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.simplecalculator.domain.CalculationService
+import com.example.simplecalculator.domain.CalculationServiceContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
