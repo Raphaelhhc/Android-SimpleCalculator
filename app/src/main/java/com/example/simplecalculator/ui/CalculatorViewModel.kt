@@ -65,7 +65,10 @@ class CalculatorViewModel @Inject constructor(
     // Delete last letter of formula
     private fun deleteLastLetter() {
         if (formulaInput.isEmpty()) return
-        formulaInput.removeAt(formulaInput.size - 1)
+        val lastToken = formulaInput.removeAt(formulaInput.size - 1)
+        if (lastToken.length > 1) {
+            formulaInput.add(lastToken.dropLast(1))
+        }
         _formula.value = formulaInput.joinToString(" ")
     }
 
