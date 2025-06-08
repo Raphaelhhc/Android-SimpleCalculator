@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,11 +37,13 @@ fun CalculatorScreen(
         )
         // Current Formula
         Text(
-            text = "Formula:\n${vm.formula.value}"
+            text = "Formula:\n${vm.formula.value}",
+            modifier = Modifier.testTag("formulaText")
         )
         // Result
         Text(
-            text = "Result:\n${vm.result.value}"
+            text = "Result:\n${vm.result.value}",
+            modifier = Modifier.testTag("resultText")
         )
         // Buttons
         Buttons(
@@ -87,6 +90,7 @@ fun Buttons(
             ) {
                 rows.forEach { char ->
                     Button(
+                        modifier = Modifier.testTag("btn_$char"),
                         onClick = {
                             Log.d("UI", "Click $char")
                             onClickButton(char)
